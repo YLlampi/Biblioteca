@@ -1,0 +1,45 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-md-8">
+            <div>
+                <h1>Mi Biblioteca CS UNSA</h1>
+                <hr>
+            </div>
+            {% for file in files %}
+                <div>
+                    <h3>{{ file.title }}</h3>
+                    <p>ISBN: {{ file.isbn }}</p>
+
+                    <h4>Descripcion:</h4>
+                    <p>{{ file.description }}</p>
+
+                    <p>{{ file.created }}</p>
+                    <p>Autor: {{ file.autor_file }}</p>
+                    <p>Evento: {{ file.link_event }}</p>
+                    <a href="{{ file.pdf_file.url }}" target="_blank">Ver documento</a>
+
+
+                </div>
+            {% endfor %}
+        </div>
+        <div class="col-md-4">
+            <div>
+                <h1>Sponsors</h1>
+                <hr>
+            </div>
+            {% for sponsor in sponsors %}
+                <div>
+                    <h2>{{ sponsor.name }}</h2>
+                    <p>{{ sponsor.description }}</p>
+                    <a href="{{ sponsor.link_company }}" target="_blank">Sitio Web</a>
+
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+{% endblock content %}
